@@ -9,12 +9,14 @@ function App() {
 
   return (
     <>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/cases/:slug" element={<CaseDetailPage />} />
-        <Route path="/categories" element={<CategoriesPage />} />
-        <Route path="/regions" element={<RegionsPage />} />
-      </Routes>
+      <div className="bg-black text-white mx-auto px-4 sm:px-8 lg:px-16 py-6 md:py-8 xl:px-30">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/cases/:slug" element={<CaseDetailPage />} />
+          <Route path="/categories" element={<CategoriesPage />} />
+          <Route path="/regions" element={<RegionsPage />} />
+        </Routes>
+      </div>
     </>
   )
 }
