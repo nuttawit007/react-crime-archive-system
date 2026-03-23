@@ -1,10 +1,20 @@
+import React from 'react'
+import { Routes, Route } from 'react-router'
+import HomePage from './pages/HomePage'
+import CaseDetailPage from './pages/CaseDetailPage'
+import CategoriesPage from './pages/CategoriesPage'
+import RegionsPage from './pages/RegionsPage'
+
 function App() {
 
   return (
     <>
-      <h1 className="text-3xl font-bold underline container mx-auto mt-10">
-        Client Side Rendering (CSR) with React and Vite Project
-      </h1>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/cases/:slug" element={<CaseDetailPage />} />
+        <Route path="/categories" element={<CategoriesPage />} />
+        <Route path="/regions" element={<RegionsPage />} />
+      </Routes>
     </>
   )
 }
