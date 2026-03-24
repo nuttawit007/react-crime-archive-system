@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <div className="bg-black text-white mx-auto px-4 sm:px-8 lg:px-16 py-6 md:py-8 xl:px-30">
+      <div className="bg-black text-white">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/cases/:slug" element={<CaseDetailPage />} />
