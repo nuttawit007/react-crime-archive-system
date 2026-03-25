@@ -5,13 +5,13 @@ const SearchInput = ({ placeholder }) => {
 
     return (
         <>
-            <div className='flex items-center'>
+            <div className='flex items-center max-w-1/2 rounded-full border border-white/20 bg-[#BBBBBB33] mt-6 py-3 px-4'>
                 <label htmlFor='search'>
-                    <div className='bg-[#BBBBBB33] px-4 py-3 pr-0 border border-white/20 border-r-0 rounded-l-full cursor-pointer'>
-                        <Search className="w-6 h-6 " color="#BBBBBB33"/>   
+                    <div className='mr-4'>
+                        <Search className="w-5 h-5 text-[#BBBBBB]"/>   
                     </div>
                 </label>
-                <input type="text" id='search' placeholder={placeholder} className="bg-[#BBBBBB33] border border-s-0 border-white/20 rounded-r-full px-3  py-3 w-1/2 focus:outline-none"/>
+                <input type="text" id='search' placeholder={placeholder}className='w-full focus:outline-none'/>
             </div>
         </>
         )
