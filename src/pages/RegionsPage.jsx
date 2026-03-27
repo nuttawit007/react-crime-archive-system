@@ -1,8 +1,13 @@
 import React from 'react'
+import HeroSection from '../components/region/hero/HeroSection'
+import MapSection from '../components/region/map/MapSection'
 
 const RegionsPage = () => {
     return (
-        <div>RegionsPage</div>
+        <div>
+            <HeroSection />
+            <MapSection />
+        </div>
     )
 }
 
