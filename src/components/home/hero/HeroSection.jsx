@@ -14,7 +14,7 @@ const HeroSection = () => {
       
       <div className="relative z-10 text-center px-4">
         <h1 className="text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">คดีฆาตกรรมในไทย</h1>
-        <p className="text-[#b13027] text-lg md:text-2xl font-light max-w-2xl mx-auto">
+        <p className="text-[#b13027] text-lg md:text-xl font-light max-w-2xl mx-auto">
           รวมคดีสำคัญจากแหล่งข้อมูลน่าเชื่อถือ พร้อมสรุปประเด็นและฟังบทความด้วย AI
         </p>
       </div>

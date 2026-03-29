@@ -1,77 +1,71 @@
-import { useRef } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import React, { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import CategoryCard from './CategoryCard';
 
 const categories = [
-  { name: "คดีปริศนา", image: "/cat1.jpg" },
-  { name: "คดีอำพราง", image: "/cat2.jpg" },
-  { name: "บุคคลสูญหาย", image: "/cat3.jpg" },
-  { name: "คดีฆาตกรรม", image: "/cat4.jpg" },
+  { name: "คดีปริศนา", image: "/images/homee/mystery.png" },
+  { name: "คดีอำพราง", image: "/images/homee/disguise.png" },
+  { name: "คดีบุคคลสูญหาย", image: "/images/homee/missing.png" },
+  { name: "คดีฆาตกรรม", image: "/images/homee/murder.png" },
 ];
 
 const CategorySection = () => {
-  const scrollRef = useRef();
+  const scrollRef = useRef(null);
+  const navigate = useNavigate();
 
   const scroll = (dir) => {
-    const amount = 300;
-    scrollRef.current.scrollBy({
-      left: dir === "left" ? -amount : amount,
-      behavior: "smooth",
-    });
+    if (scrollRef.current) {
+      const scrollAmount = 380;
+      scrollRef.current.scrollBy({
+        left: dir === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
-    <div className="px-4 md:px-10 py-10 bg-black relative">
-      
-      <h2 className="text-xl md:text-2xl font-bold mb-6">
-        หมวดหมู่คดี
-      </h2>
+    <section className="py-16 bg-black relative max-w-7xl mx-auto px-6">
+      <h2 className="text-white text-3xl font-bold mb-10 ml-2">หมวดหมู่คดี</h2>
 
-      {/* arrows */}
-      <button
-        onClick={() => scroll("left")}
-        className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/40 p-2 rounded-full"
-      >
-        <ChevronLeft />
-      </button>
+      <div className="relative group">
+        <button
+          onClick={() => scroll("left")}
+          className="absolute -left-5 top-1/2 -translate-y-1/2 z-30 bg-zinc-800/90 text-white p-3 rounded-full hover:bg-zinc-700 transition-all border border-white/10 shadow-2xl"
+        >
+          <ChevronLeft size={28} />
+        </button>
 
-      <button
-        onClick={() => scroll("right")}
-        className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/40 p-2 rounded-full"
-      >
-        <ChevronRight />
-      </button>
-
-      {/* scroll container */}
-      <div
-        ref={scrollRef}
-        className="flex gap-4 overflow-x-auto scrollbar-hide"
-      >
-        {categories.map((cat, i) => (
-          <div
-            key={i}
-            className="min-w-[250px] h-[150px] relative rounded-xl overflow-hidden group"
-          >
-            <img
-              src={cat.image}
-              className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+        <div
+          ref={scrollRef}
+          className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth pb-4 px-2"
+        >
+          {categories.map((cat, i) => (
+            <CategoryCard
+              key={i}
+              name={cat.name}
+              image={cat.image}
+              onClick={() => navigate(`/categories/${cat.name}`)}
             />
+          ))}
+        </div>
 
-            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <span className="border border-white px-4 py-1 font-semibold">
-                {cat.name}
-              </span>
-            </div>
-          </div>
-        ))}
+        <button
+          onClick={() => scroll("right")}
+          className="absolute -right-5 top-1/2 -translate-y-1/2 z-30 bg-zinc-800/90 text-white p-3 rounded-full hover:bg-zinc-700 transition-all border border-white/10 shadow-2xl"
+        >
+          <ChevronRight size={28} />
+        </button>
       </div>
 
-      {/* dots */}
-      <div className="flex justify-center mt-4 gap-2">
-        <div className="w-2 h-2 bg-red-500 rounded-full" />
-        <div className="w-2 h-2 bg-gray-500 rounded-full" />
-        <div className="w-2 h-2 bg-gray-500 rounded-full" />
+      {/* Dots บอกตำแหน่ง */}
+      <div className="flex justify-center mt-10 gap-3">
+        <div className="w-3 h-3 bg-red-600 rounded-full shadow-[0_0_12px_rgba(220,38,38,0.6)]" />
+        <div className="w-3 h-3 bg-zinc-700 rounded-full" />
+        <div className="w-3 h-3 bg-zinc-700 rounded-full" />
+        <div className="w-3 h-3 bg-zinc-700 rounded-full" />
       </div>
-    </div>
+    </section>
   );
 };
 
