@@ -5,3 +5,11 @@
     @apply bg-black text-white min-h-screen;
   }
 }
+/* ซ่อน Scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
