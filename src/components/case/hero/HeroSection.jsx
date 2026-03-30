@@ -20,9 +20,11 @@ export default function HeroSection({ caseItem, heroImage, onBack }) {
       <div className="absolute inset-0 bg-linear-to-t from-[#0a0a0a] via-[#0a0a0a]/70 to-black/30" />
 
       {/* Back button */}
-      <div className="absolute top-6 left-6 z-20">
-        <Button type="secondary" text="ย้อนกลับ" onClick={onBack} />  
-      </div>
+      <div className="absolute top-6 left-0 right-0 z-20">
+  <div className="max-w-6xl mx-auto px-4 md:px-8">
+    <Button type="secondary" text="ย้อนกลับ" onClick={onBack} />
+  </div>
+</div>
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto w-full px-6 md:px-8 pb-12 md:pb-16 text-center">
