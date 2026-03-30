@@ -21,13 +21,19 @@ function formatTime(totalSeconds = 0) {
 }
 
 export default function AIAudioSummaryCard({ audio = {} }) {
+  const audioIdentity = `${audio.audioSrc || ''}-${audio.duration || ''}`
+
+  return <AIAudioSummaryCardInner key={audioIdentity} audio={audio} />
+}
+
+function AIAudioSummaryCardInner({ audio = {} }) {
   const audioRef = useRef(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(timeToSeconds(audio.duration || '00:00'))
   const [showTranscript, setShowTranscript] = useState(false)
 
-  const segments = audio?.segments ?? []
+  const segments = useMemo(() => audio?.segments ?? [], [audio.segments])
 
   const activeSegmentIndex = useMemo(() => {
     return segments.findIndex((segment) => {
@@ -49,15 +55,6 @@ export default function AIAudioSummaryCard({ audio = {} }) {
       player.pause()
     }
   }, [isPlaying])
-
-  useEffect(() => {
-  setCurrentTime(0)
-  setIsPlaying(false)
-  setDuration(timeToSeconds(audio.duration || '00:00'))
-  if (audioRef.current) {
-    audioRef.current.load()
-  }
-}, [audio.audioSrc, audio.duration])
 
   const togglePlay = () => setIsPlaying((prev) => !prev)
 
