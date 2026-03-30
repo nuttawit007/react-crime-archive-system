@@ -22,8 +22,7 @@ const CategorySection = () => {
 
   const handleScroll = () => {
     if (scrollRef.current) {
-      const { scrollLeft, clientWidth } = scrollRef.current;
-
+      const { scrollLeft } = scrollRef.current;
       const firstCard = scrollRef.current.firstChild;
       if (firstCard) {
         const cardWidth = firstCard.offsetWidth + 24;
