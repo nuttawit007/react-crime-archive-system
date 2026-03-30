@@ -1,10 +1,13 @@
 import React from 'react';
+import puzzleImg from "../../../assets/images/feate/puzzle.png"
+import defendImg from "../../../assets/images/feate/defend.png"
+import aiImg from "../../../assets/images/feate/AI_listen.png"
 
 const FeatSection = () => {
     const features = [
-        { img: "/images/feate/puzzle.png", title: "สรุปคดีสำคัญ", desc: "รวบรวมประเด็นสำคัญและลำดับเหตุการณ์อย่างละเอียด" },
-        { img: "/images/feate/defend.png", title: "แนวทางฝึกฝนตัว", desc: "เรียนรู้เพื่อหาทางระวังและป้องกันภัยจากกรณีศึกษา" },
-        { img: "/images/feate/AI_listen.png", title: "พิสูจน์ด้วย AI", desc: "วิเคราะห์ข้อมูลคดีด้วยเทคโนโลยีประมวลผลขั้นสูง" },
+        { img: puzzleImg, title: "สรุปคดีสำคัญ", desc: "รวบรวมประเด็นสำคัญและลำดับเหตุการณ์อย่างละเอียด" },
+        { img: defendImg, title: "แนวทางฝึกฝนตัว", desc: "เรียนรู้เพื่อหาทางระวังและป้องกันภัยจากกรณีศึกษา" },
+        { img: aiImg, title: "พิสูจน์ด้วย AI", desc: "วิเคราะห์ข้อมูลคดีด้วยเทคโนโลยีประมวลผลขั้นสูง" },
     ];
 
     return (

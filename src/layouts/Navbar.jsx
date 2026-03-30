@@ -1,4 +1,5 @@
 import React from "react";
+import LogoImg from '../assets/images/homee/Logo.png'
 
 const Navbar = () => {
     const scrollToSection = (e, id) => {
@@ -15,14 +16,14 @@ const Navbar = () => {
                 {/* Logo */}
                 <div className="flex items-center">
                     <img
-                        src="/images/homee/Logo.png"
+                        src={LogoImg}
                         alt="logo"
                         className="w-12 h-12 object-contain hover:scale-105 transition-transform cursor-pointer"
                     />
                 </div>
 
                 {/* Menu */}
-                <div className="hidden md:flex gap-8 text-sm font-semibold text-gray-300">
+                <div className="hidden md:flex gap-8 text-sm font-bold text-white tracking-wide">
                     <a href="/" className="hover:text-red-500 transition">
                         หน้าหลัก
                     </a>
