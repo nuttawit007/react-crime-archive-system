@@ -39,7 +39,7 @@ export default function AIAudioSummaryCard({ audio = {} }) {
   }, [segments, currentTime])
 
   const activeSegment = activeSegmentIndex >= 0 ? segments[activeSegmentIndex] : null
-  const progressPercent = duration > 0 ? Math.min((currentTime / duration) * 100, 100) : 0
+  
 
   useEffect(() => {
     const player = audioRef.current
@@ -123,7 +123,7 @@ export default function AIAudioSummaryCard({ audio = {} }) {
       </div>
 
       {/* Progress */}
-      {/* Progress */}
+      
 <div className="flex flex-col gap-2">
   <input
     type="range"
