@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import { useState, useRef } from 'react'
 import { useParams, useNavigate } from 'react-router'
 import casesData from '../data/cases.json'
 import HeroSection from '../components/case/hero/HeroSection'
@@ -38,14 +38,19 @@ export default function CaseDetailPage() {
   const navigate = useNavigate()
   const [activeTab, setActiveTab] = useState('detail')
 
+
+  const detailRef = useRef(null)
+  const timelineRef = useRef(null)
+  const keyIssuesRef = useRef(null)
+  const learningRef = useRef(null)
+
   const sectionRefs = {
-    detail: useRef(null),
-    timeline: useRef(null),
-    'key-issues': useRef(null),
-    learning: useRef(null),
+    detail: detailRef,
+    timeline: timelineRef,
+    'key-issues': keyIssuesRef,
+    learning: learningRef,
   }
 
-  // Flatten all cases from all provinces
   const allCases = casesData.flatMap((prov) =>
     prov.cases.map((c) => ({
       ...c,
@@ -57,7 +62,6 @@ export default function CaseDetailPage() {
     }))
   )
 
-  // Find matching case
   const caseItem = allCases.find(
     (c) =>
       c.slug === slug ||
@@ -71,7 +75,7 @@ export default function CaseDetailPage() {
         <p className="text-2xl font-semibold">ไม่พบข้อมูลคดีที่คุณกำลังมองหา</p>
         <button
           onClick={() => navigate('/cases')}
-          className="bg-[#e5341a] hover:bg-[#c42a13] text-white font-semibold px-8 py-3 rounded-full transition"
+          className="bg-[#e5341a] hover:bg-[#c42a13] text-white font-semibold px-8 py-3 rounded-full transition cursor-pointer"
         >
           ดูคดีทั้งหมด
         </button>
@@ -79,7 +83,6 @@ export default function CaseDetailPage() {
     )
   }
 
-  // Build enriched case with safe fallbacks
   const heroImage = resolveImage(caseItem.heroImage || caseItem.image)
   const galleryRaw = (caseItem.gallery && caseItem.gallery.length > 0)
     ? caseItem.gallery
@@ -121,7 +124,7 @@ export default function CaseDetailPage() {
   const handleTabClick = (tabId) => {
     setActiveTab(tabId)
     const ref = sectionRefs[tabId]
-    if (ref && ref.current) {
+    if (ref?.current) {
       ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
   }
@@ -143,23 +146,23 @@ export default function CaseDetailPage() {
       />
 
       <div className="max-w-6xl mx-auto px-4 md:px-8 py-10 flex flex-col gap-16">
-        <div ref={sectionRefs.detail} id="detail">
+        <div ref={detailRef} id="detail">
           <DetailSection title={caseItem.title} paragraphs={detailParagraphs}>
             <AIAudioSummaryCard audio={aiSummary} />
           </DetailSection>
         </div>
 
-        <div ref={sectionRefs.timeline} id="timeline">
+        <div ref={timelineRef} id="timeline">
           <TimeLineSection items={timeline} />
         </div>
 
         <EvidenceGallerySection images={galleryImages} title="หลักฐานและภาพประกอบ" />
 
-        <div ref={sectionRefs['key-issues']} id="key-issues">
+        <div ref={keyIssuesRef} id="key-issues">
           <KeyIssuesSection paragraphs={keyIssues} />
         </div>
 
-        <div ref={sectionRefs.learning} id="learning">
+        <div ref={learningRef} id="learning">
           <LearningSection learning={learning} />
         </div>
       </div>

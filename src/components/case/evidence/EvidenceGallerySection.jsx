@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 export default function EvidenceGallerySection({ images, title }) {
   const [current, setCurrent] = useState(0)
@@ -16,13 +16,13 @@ export default function EvidenceGallerySection({ images, title }) {
 
       <div className="relative bg-[#161616] border border-white/10 rounded-2xl overflow-hidden">
         {/* Main image */}
-        <div className="relative w-full aspect-video md:aspect-[16/7] overflow-hidden">
+      <div className="relative w-full aspect-video md:aspect-16/7 overflow-hidden">
           <img
             src={images[current]}
             alt={`หลักฐาน ${current + 1}`}
             className="w-full h-full object-cover transition-opacity duration-300"
+            loading="lazy"
           />
-          {/* Image counter */}
           <div className="absolute top-4 right-4 bg-black/60 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">
             {current + 1} / {images.length}
           </div>
@@ -33,19 +33,19 @@ export default function EvidenceGallerySection({ images, title }) {
           <>
             <button
               onClick={prev}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 border border-white/20 text-white flex items-center justify-center transition backdrop-blur-sm"
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 border border-white/20 text-white flex items-center justify-center transition backdrop-blur-sm cursor-pointer"
               aria-label="ก่อนหน้า"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
               </svg>
             </button>
             <button
               onClick={next}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 border border-white/20 text-white flex items-center justify-center transition backdrop-blur-sm"
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 border border-white/20 text-white flex items-center justify-center transition backdrop-blur-sm cursor-pointer"
               aria-label="ถัดไป"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
               </svg>
             </button>
@@ -59,7 +59,7 @@ export default function EvidenceGallerySection({ images, title }) {
               <button
                 key={idx}
                 onClick={() => setCurrent(idx)}
-                className={`rounded-full transition-all ${
+                className={`rounded-full transition-all cursor-pointer ${
                   idx === current
                     ? 'w-6 h-2 bg-[#e5341a]'
                     : 'w-2 h-2 bg-white/30 hover:bg-white/50'

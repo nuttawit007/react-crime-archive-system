@@ -1,4 +1,4 @@
-import React from 'react'
+import Button from '../../../common/Button'
 
 export default function HeroSection({ caseItem, heroImage, onBack }) {
   const subtitle = caseItem.subtitle || caseItem.content || ''
@@ -17,25 +17,12 @@ export default function HeroSection({ caseItem, heroImage, onBack }) {
       )}
 
       {/* Dark gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/70 to-black/30" />
+      <div className="absolute inset-0 bg-linear-to-t from-[#0a0a0a] via-[#0a0a0a]/70 to-black/30" />
 
       {/* Back button */}
-      <button
-        onClick={onBack}
-        className="absolute top-6 left-6 z-20 flex items-center gap-2 bg-black/50 hover:bg-black/70 text-white text-sm font-medium px-4 py-2 rounded-full border border-white/20 backdrop-blur-sm transition"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-4 h-4"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-        </svg>
-        ย้อนกลับ
-      </button>
+      <div className="absolute top-6 left-6 z-20">
+        <Button type="secondary" text="ย้อนกลับ" onClick={onBack} />  
+      </div>
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto w-full px-6 md:px-8 pb-12 md:pb-16 text-center">

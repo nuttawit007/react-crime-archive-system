@@ -1,5 +1,4 @@
-import React from 'react'
-import LegalSummaryCard from './LegalSummaryCard'
+import LegalSummaryCard from './LegalSummaryCard' 
 import PreventionGuideCard from './PreventionGuideCard'
 
 export default function LearningSection({ learning }) {
