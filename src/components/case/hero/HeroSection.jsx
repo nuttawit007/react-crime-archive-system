@@ -4,7 +4,7 @@ export default function HeroSection({ caseItem, heroImage, onBack }) {
   const subtitle = caseItem.subtitle || caseItem.content || ''
 
   return (
-    <div className="relative w-full min-h-[60vh] md:min-h-[70vh] flex flex-col justify-end overflow-hidden">
+    <div className="relative w-full h-[300px] md:h-[400px] flex flex-col justify-end overflow-hidden">
       {/* Background image */}
       {heroImage ? (
         <img
