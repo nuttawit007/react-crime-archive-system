@@ -66,14 +66,14 @@ const CategorySection = () => {
         {/* ปุ่มซ้าย */}
         <button
           onClick={() => scroll("left")}
-          className="absolute -left-5 top-1/2 -translate-y-1/2 z-30 bg-zinc-800/90 text-white p-3 rounded-full hover:bg-zinc-700 transition-all border border-white/10 shadow-2xl"
+          className="absolute -left-5 top-1/2 cursor-pointer -translate-y-1/2 z-30 bg-zinc-800/90 text-white p-3 rounded-full hover:bg-zinc-700 transition-all border border-white/10 shadow-2xl"
         >
           <ChevronLeft size={28} />
         </button>
 
         <div
           ref={scrollRef}
-          className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth pb-4 px-2 snap-x snap-mandatory"        >
+          className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth pb-4 px-2 snap-x snap-mandatory" >
           {categories.map((cat, i) => (
             <CategoryCard
               key={i}
@@ -87,7 +87,7 @@ const CategorySection = () => {
         {/* ปุ่มขวา */}
         <button
           onClick={() => scroll("right")}
-          className="absolute -right-5 top-1/2 -translate-y-1/2 z-30 bg-zinc-800/90 text-white p-3 rounded-full hover:bg-zinc-700 transition-all border border-white/10 shadow-2xl"
+          className="absolute -right-5 top-1/2 cursor-pointer -translate-y-1/2 z-30 bg-zinc-800/90 text-white p-3 rounded-full hover:bg-zinc-700 transition-all border border-white/10 shadow-2xl"
         >
           <ChevronRight size={28} />
         </button>

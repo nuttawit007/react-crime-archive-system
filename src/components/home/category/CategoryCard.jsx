@@ -4,7 +4,7 @@ const CategoryCard = ({ name, image, onClick }) => {
     return (
         <div
             onClick={onClick}
-            className="min-w-75 md:min-w-87.5 h-50 snap-center relative rounded-2xl ..."        >
+            className="min-w-75 md:min-w-87.5 h-50 snap-center relative rounded-2xl overflow-hidden cursor-pointer group shadow-2xl transition-all duration-500 hover:ring-2 hover:ring-red-600/50"        >
             <img
                 src={image}
                 alt={name}

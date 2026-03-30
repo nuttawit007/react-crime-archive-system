@@ -4,9 +4,22 @@ import LogoImg from '../assets/images/homee/Logo.png'
 const Navbar = () => {
     const scrollToSection = (e, id) => {
         e.preventDefault();
+
+        if (id === 'home') {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            return;
+        }
+
         const element = document.getElementById(id);
         if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
+            const offset = 100;
+            const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+            const offsetPosition = elementPosition - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+            });
         }
     };
 
@@ -24,7 +37,7 @@ const Navbar = () => {
 
                 {/* Menu */}
                 <div className="hidden md:flex gap-8 text-sm font-bold text-white tracking-wide">
-                    <a href="/" className="hover:text-red-500 transition">
+                    <a href="/" onClick={(e) => scrollToSection(e, 'home')} className="hover:text-red-500 transition">
                         หน้าหลัก
                     </a>
                     <a href="#categories" onClick={(e) => scrollToSection(e, 'categories')} className="hover:text-red-500 transition">

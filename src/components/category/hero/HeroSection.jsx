@@ -21,34 +21,38 @@ const HeroSection = ({ title, searchTerm, onSearchChange }) => {
     const backgroundImage = categoryImages[title] || defaultBg;
 
     return (
-        <section className="relative h-150 flex items-center justify-center overflow-hidden bg-black">
-
-            <div className="absolute inset-0 z-0">
+        <div className="w-full">
+            {/* --- ส่วนของ Banner (Hero) ปรับความสูงเหลือ h-60 ตามหน้า Region --- */}
+            <section className="relative h-60 overflow-hidden bg-black">
+                {/* Background Image */}
                 <img
                     src={backgroundImage}
-                    className="w-full h-full object-cover opacity-50"
-                    alt={title}
+                    alt="background"
+                    className="absolute inset-0 h-full w-full object-cover opacity-50"
                 />
-                <div className="absolute inset-0 bg-linear-to-b"></div>
-            </div>
 
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-6 flex flex-col items-center">
+                {/* Content Overlay */}
+                <div className="relative z-10 flex h-full items-center justify-center px-6 text-center">
+                    {/* ปุ่มย้อนกลับ จัดตำแหน่งชิดซ้ายบนตามตัวอย่าง */}
+                    <div className='absolute top-0 left-0 px-8 py-8 md:px-15 md:py-15 lg:px-30 lg:py-12'>
+                        <Button
+                            type="secondary"
+                            text="ย้อนกลับ"
+                            onClick={() => navigate('/')}
+                        />
+                    </div>
 
-                <div className="absolute left-20 -top-10 md:-top-32">
-                    <Button
-                        type="secondary"
-                        text="ย้อนกลับ"
-                        onClick={() => navigate('/')}
-                    />
-                </div>
-
-                <div className="text-center">
-                    <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight drop-shadow-2xl">
+                    {/* หัวข้อขนาดเล็กลงตามสไตล์หน้า Region */}
+                    <h1 className="text-2xl font-bold text-white sm:text-3xl md:text-4xl lg:text-5xl drop-shadow-lg">
                         {title === "คดีในไทยทั้งหมด" ? title : `หมวดหมู่ ${title}`}
                     </h1>
                 </div>
+            </section>
 
-                <div className="w-full max-w-2xl mx-auto mt-4">
+            {/* --- ส่วนของ Search ด้านล่าง (ชิดซ้าย) --- */}
+            <div className="bg-[#0a0a0a] py-8">
+                {/* ปรับ max-w และ margin ให้เยื้องซ้ายตามแนวปุ่มย้อนกลับ */}
+                <div className="w-full max-w-2xl px-8 md:px-15 lg:px-30">
                     <SearchInput
                         placeholder="ค้นหาคดีที่คุณสนใจ..."
                         value={searchTerm}
@@ -56,7 +60,7 @@ const HeroSection = ({ title, searchTerm, onSearchChange }) => {
                     />
                 </div>
             </div>
-        </section>
+        </div>
     );
 };
 
