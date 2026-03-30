@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import { useParams, useNavigate } from 'react-router'
 import casesData from '../data/cases.json'
+import caseAiScripts from '../data/caseAiScripts.json'  // ✅ เพิ่ม
 import HeroSection from '../components/case/hero/HeroSection'
 import CaseTabNav from '../components/case/nav/CaseTabNav'
 import DetailSection from '../components/case/detail/DetailSection'
@@ -37,7 +38,6 @@ export default function CaseDetailPage() {
   const { slug } = useParams()
   const navigate = useNavigate()
   const [activeTab, setActiveTab] = useState('detail')
-
 
   const detailRef = useRef(null)
   const timelineRef = useRef(null)
@@ -94,12 +94,16 @@ export default function CaseDetailPage() {
       ? caseItem.detailParagraphs
       : [caseItem.content]
 
-  const aiSummary = caseItem.aiSummary || {
-    title: 'ฟังสรุปคดีด้วย AI',
-    duration: '05:40',
-    currentTime: '00:00',
-    summaryText: caseItem.content || '',
-    ctaText: 'อ่านสรุปบทความ',
+  // ✅ ผูก segments จาก caseAiScripts เข้ากับ aiSummary
+  const scriptKey = caseItem.aiSummaryScript || caseItem.id
+  const aiScript = caseAiScripts[scriptKey] || { segments: [] }
+  const aiSummary = {
+    ...(caseItem.aiSummary || {
+      title: 'ฟังสรุปคดีด้วย AI',
+      summaryText: caseItem.content || '',
+      ctaText: 'ดูบทพูดทั้งหมด',
+    }),
+    segments: aiScript.segments || [],
   }
 
   const timeline = caseItem.timeline || []
