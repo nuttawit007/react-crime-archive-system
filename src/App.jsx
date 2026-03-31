@@ -6,11 +6,13 @@ import CategoriesPage from './pages/CategoriesPage'
 import RegionsPage from './pages/RegionsPage'
 import ProvincePage from './pages/ProvincePage'
 import SharePage from './pages/SharePage'
+import ScrollToTop from './layouts/ScrollToTop'
 
 function App() {
 
   return (
     <>
+      <ScrollToTop />
       <div className="bg-black text-white">
         <Routes>
           <Route path="/" element={<HomePage />} />
