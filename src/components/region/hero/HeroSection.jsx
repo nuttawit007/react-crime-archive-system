@@ -10,7 +10,7 @@ const HeroSection = () => {
         navigate('/')
     }
     return (
-        <HeroBanner heroImage={heroImage} handleBack={handleBack}/>
+        <HeroBanner heroImage={heroImage} handleBack={handleBack} text="สำรวจคดีเด่นในไทยตามพื้นที่"/>
     )
 }
 

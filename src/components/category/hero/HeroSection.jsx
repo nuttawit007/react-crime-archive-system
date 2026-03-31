@@ -26,7 +26,7 @@ const HeroSection = ({ title, searchTerm, onSearchChange }) => {
 
     return (
         <div className="w-full">
-            <HeroBanner heroImage={backgroundImage} handleBack={handleBack}/>
+            <HeroBanner heroImage={backgroundImage} handleBack={handleBack} text={title} />
 
             <div className="bg-[#0a0a0a] py-8">
                 <div className="w-full max-w-2xl px-8 md:px-15 lg:px-30">

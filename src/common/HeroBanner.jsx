@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from './Button'
 
-const HeroBanner = ( {heroImage, handleBack} ) => {
+const HeroBanner = ( {text, heroImage, handleBack} ) => {
     return (
         <section className="relative h-60">
             {/* background image */}
@@ -13,7 +13,7 @@ const HeroBanner = ( {heroImage, handleBack} ) => {
                     <Button type="secondary" text="ย้อนกลับ" onClick={handleBack}/>
                 </div>
                 <h1 className="text-2xl font-bold text-white sm:text-3xl md:text-4xl lg:text-5xl text-shadow-lg/30">
-                    สำรวจคดีเด่นในไทยตามพื้นที่
+                    {text}
                 </h1>
             </div>
         </section>
