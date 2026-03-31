@@ -59,7 +59,7 @@ const CategorySection = () => {
   };
 
   return (
-    <section className="py-16 bg-black relative max-w-7xl mx-auto px-6">
+    <section className="py-16 relative max-w-7xl mx-auto px-6">
       <h2 className="text-white text-3xl font-bold mb-10 ml-2">หมวดหมู่คดี</h2>
 
       <div className="relative group">
