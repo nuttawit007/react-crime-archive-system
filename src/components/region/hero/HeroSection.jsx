@@ -1,8 +1,13 @@
 import React from 'react'
 import heroImage from '../../../assets/images/region/region_hero.png'
 import Button from '../../../common/Button'
+import { useNavigate } from 'react-router'
 
 const HeroSection = () => {
+    const navigate = useNavigate()
+    const handleBack = () => {
+        navigate('/')
+    }
     return (
         <section className="relative h-60">
             {/* background image */}
@@ -11,7 +16,7 @@ const HeroSection = () => {
             {/* content */}
             <div className="relative z-10 flex h-full items-center justify-center px-6 text-center">
                 <div className='absolute top-0 left-0 px-8 py-8 md:px-15 md:py-15 lg:px-30 lg:py-12'>
-                    <Button type="secondary" text="ย้อนกลับ"/>
+                    <Button type="secondary" text="ย้อนกลับ"  onClick={handleBack}/>
                 </div>
                 <h1 className="text-2xl font-bold text-white sm:text-3xl md:text-4xl lg:text-5xl text-shadow-lg/30">
                     สำรวจคดีเด่นในไทยตามพื้นที่
