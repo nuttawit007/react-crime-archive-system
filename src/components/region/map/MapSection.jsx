@@ -16,7 +16,7 @@ const MapSection = () => {
     }
 
     return (
-        <section className="px-30 mt-10">
+        <section className="px-6 md:px-15 lg:px-30 mt-10">
             <div className='flex gap-2 items-center'>
                 <SearchProvince value={province} onChange={setProvince}/>
                 <Button type="primary" text="ค้นหา" onClick={handleSearch}/>
