@@ -9,13 +9,12 @@ import RegionSection from '../components/home/region/RegionSection';
 import casesData from '../data/cases.json';
 
 const HomePage = () => {
-    const allCases = casesData.flatMap(prov => 
+    const allCases = casesData.flatMap(prov =>
         prov.cases.map(c => ({ ...c, provinceName: prov.name }))
     );
 
     const latestCases = allCases.slice(0, 4);
-    const suggestCase = allCases[0];
-
+    const suggestCase = allCases.find(item => item.id === "05-07");
     return (
         <div className="bg-[#0a0a0a] min-h-screen text-white font-sans">
             <Navbar />
@@ -26,11 +25,11 @@ const HomePage = () => {
             <div id="categories">
                 <CategorySection />
             </div>
-            
+
             <div id="latest">
                 <LatestCasesSection cases={latestCases} />
             </div>
-            
+
             <div id="region">
                 <RegionSection />
             </div>

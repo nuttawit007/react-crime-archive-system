@@ -10,7 +10,7 @@ const LatestCasesSection = ({ cases }) => {
 
     return (
         <section className="py-12 px-4 max-w-6xl mx-auto text-white">
-            <h2 className="text-2xl font-bold mb-8 border-l-4 border-[#b13027] pl-4">
+            <h2 className="text-2xl font-bold mb-8 border-l-4 border-[#EB3F34] pl-4">
                 คดีในไทยล่าสุด
             </h2>
 
