@@ -73,7 +73,7 @@ const CategorySection = () => {
 
         <div
           ref={scrollRef}
-          className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth pb-4 px-2 snap-x snap-mandatory" >
+          className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth py-4 px-2 snap-x snap-mandatory" >
           {categories.map((cat, i) => (
             <CategoryCard
               key={i}
