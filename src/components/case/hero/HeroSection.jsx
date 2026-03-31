@@ -1,10 +1,11 @@
 import Button from '../../../common/Button'
+import Tag from '../../../common/Tag'
 
 export default function HeroSection({ caseItem, heroImage, onBack }) {
   const subtitle = caseItem.subtitle || caseItem.content || ''
 
   return (
-    <div className="relative w-full h-[300px] md:h-[400px] flex flex-col justify-end overflow-hidden">
+    <div className="relative w-full h-75 md:h-100 flex flex-col justify-end overflow-hidden">
       {/* Background image */}
       {heroImage ? (
         <img
@@ -29,11 +30,7 @@ export default function HeroSection({ caseItem, heroImage, onBack }) {
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto w-full px-6 md:px-8 pb-12 md:pb-16 text-center">
         {/* Category badge */}
-        {caseItem.category && (
-          <span className="inline-block mb-4 px-4 py-1 rounded-full text-sm font-semibold bg-[#e5341a]/20 border border-[#e5341a]/50 text-[#ff7a65]">
-            {caseItem.category}
-          </span>
-        )}
+        {caseItem.category && <Tag type={caseItem.category} />}
 
         {/* Title */}
         <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-4">
