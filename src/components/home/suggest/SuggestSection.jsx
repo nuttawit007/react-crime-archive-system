@@ -51,7 +51,7 @@ const SuggestSection = ({ caseData }) => {
                             <Button
                                 type="primary"
                                 text="อ่านคดีเลย"
-                                onClick={() => navigate(`/case/${caseData.slug}`)}
+                                onClick={() => navigate(`/cases/${caseData.slug}`)}
                             />
                         </div>
                     </div>
