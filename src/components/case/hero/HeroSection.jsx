@@ -22,18 +22,18 @@ export default function HeroSection({ caseItem, heroImage, onBack }) {
 
       {/* Back button */}
       <div className="absolute top-6 left-0 right-0 z-20">
-  <div className="max-w-6xl mx-auto px-4 md:px-8">
-    <Button type="secondary" text="ย้อนกลับ" onClick={onBack} />
-  </div>
-</div>
+        <div className="max-w-6xl mx-auto px-4 md:px-8">
+          <Button type="secondary" text="ย้อนกลับ" onClick={onBack} />
+        </div>
+      </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto w-full px-6 md:px-8 pb-12 md:pb-16 text-center">
+      <div className="relative z-10 max-w-4xl mx-auto w-full px-6 md:px-8 pt-24 md:pt-0 pb-12 md:pb-16 text-center">
         {/* Category badge */}
-        {caseItem.category && <Tag type={caseItem.category} />}
+          {caseItem.category && (<Tag type={caseItem.category} />)}
 
         {/* Title */}
-        <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-4">
+        <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight my-4">
           {caseItem.title}
         </h1>
 
