@@ -7,6 +7,7 @@ import RegionsPage from './pages/RegionsPage'
 import ProvincePage from './pages/ProvincePage'
 import SharePage from './pages/SharePage'
 import ScrollToTop from './layouts/ScrollToTop'
+import NotfoundPage from './pages/NotfoundPage'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/categories/:id" element={<CategoriesPage />} />
           <Route path="/regions" element={<RegionsPage />} />
           <Route path="/province/:code" element={<ProvincePage />} />
+          <Route path="*" element={<NotfoundPage />} />
         </Routes>
       </div>
     </>
