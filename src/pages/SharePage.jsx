@@ -23,7 +23,7 @@ const SharePage = () => {
                 onSearchChange={setSearchTerm}
             />
 
-            <div className="max-w-6xl mx-auto px-6 mt-12 pb-20">
+            <div className="mx-auto px-6 md:px-15 lg:px-30  mt-12 pb-20">
                 {filteredCases.length > 0 ? (
                     <CasesListSection cases={filteredCases} />
                 ) : (
