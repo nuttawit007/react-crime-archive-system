@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router'
 const HeroSection = () => {
     const navigate = useNavigate()
     const handleBack = () => {
-        navigate(-1)
+        navigate('/')
     }
     return (
         <section className="relative h-60">
