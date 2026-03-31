@@ -112,7 +112,7 @@ const QuizSection = () => {
     }
 
     return (
-        <section className='px-30 mt-20 mb-10'>
+        <section className='px-6 md:px-15 lg:px-30 mt-20 mb-10'>
         <div className='flex flex-col items-center text-center gap-2'>
             <h1 className='text-3xl'>คดีแบบไหนเหมาะกับคุณ ?</h1>
             <p className='text-gray-500'>
