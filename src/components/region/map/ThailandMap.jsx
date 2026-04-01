@@ -36,8 +36,6 @@ function getProvinceGeoCode(feature) {
     return normalizeProvinceCode(properties.pro_code);
 }
 
-
-
 function getProvinceName(feature) {
     const properties = feature?.properties ?? {};
     return properties.pro_th ?? properties.name_th ?? properties.name ?? "";
@@ -208,7 +206,6 @@ const ThailandMap = () => {
                                 }
                             }}
                         >
-                        <title>{`${province.name} | จำนวนคดี: ${province.caseCount}`}</title>
                         </path>
 
                         {province.centroid ? (
