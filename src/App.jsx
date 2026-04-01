@@ -1,10 +1,31 @@
+import React from 'react'
+import { Routes, Route } from 'react-router'
+import HomePage from './pages/HomePage'
+import CaseDetailPage from './pages/CaseDetailPage'
+import CategoriesPage from './pages/CategoriesPage'
+import RegionsPage from './pages/RegionsPage'
+import ProvincePage from './pages/ProvincePage'
+import SharePage from './pages/SharePage'
+import ScrollToTop from './layouts/ScrollToTop'
+import NotfoundPage from './pages/NotfoundPage'
+
 function App() {
 
   return (
     <>
-      <h1 className="text-3xl font-bold underline container mx-auto mt-10">
-        Client Side Rendering (CSR) with React and Vite Project
-      </h1>
+      <ScrollToTop />
+      <div className="bg-black text-white">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/cases" element={<SharePage />} />
+          <Route path="/cases/:slug" element={<CaseDetailPage />} />
+          <Route path="/categories" element={<CategoriesPage />} />
+          <Route path="/categories/:id" element={<CategoriesPage />} />
+          <Route path="/regions" element={<RegionsPage />} />
+          <Route path="/province/:code" element={<ProvincePage />} />
+          <Route path="*" element={<NotfoundPage />} />
+        </Routes>
+      </div>
     </>
   )
 }
