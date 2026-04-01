@@ -21,7 +21,7 @@ The main goal of the project is to demonstrate Client Side Web Development conce
 
 Clone Project:
 ```
-git clone https://github.com/nuttawit007/react-csr-project.git
+git clone https://github.com/nuttawit007/react-crime-archive-system.git
 cd react-cst-project
 ```
 
