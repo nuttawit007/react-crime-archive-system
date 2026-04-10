@@ -22,7 +22,7 @@ The main goal of the project is to demonstrate Client Side Web Development conce
 Clone Project:
 ```
 git clone https://github.com/nuttawit007/react-crime-archive-system.git
-cd react-cst-project
+cd react-crime-archive-system
 ```
 
 install dependency:
@@ -42,17 +42,10 @@ http://localhost:5173
 
 ## 🖥️ Technology Stack
 
-Frontend Framework
-- React
-- Vite
-Routing
-- React Router
-Visualization
-- D3-geo (for geographic rendering)
-Styling
-- TailwindCSS
-Icons
-- Lucide React
+- **Frontend**: React, Vite
+- **Routing**: React Router
+- **Visualization**: D3-geo (for geographic rendering)
+- **Styling**: TailwindCSS
 
 ## ⚠️ Important Note
 
